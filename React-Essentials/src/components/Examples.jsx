@@ -1,13 +1,10 @@
-import { useState, Fragment } from "react";
+import { useState } from "react";
+import TabButton from "./TabButton.jsx";
+import { EXAMPLES } from "../data.js";
+import Section from "./Section.jsx";
+import Tabs from "./Tabs.jsx";
 
-import { CORE_CONCEPTS } from "./data.js";
-import { EXAMPLES } from "./data.js";
-
-import Header from "./components/Header/Header.jsx";
-import CoreConcept from "./components/CoreConcept.jsx";
-import TabButton from "./components/TabButton.jsx";
-
-function App() {
+export default function Examples() {
   const [selectedTopic, setSelectedTopic] = useState(null);
 
   function onSelect(selectedButton) {
@@ -29,52 +26,40 @@ function App() {
   }
 
   return (
-    <>
-      <Header />
-      <main>
-        <section id="core-concepts">
-          <h2>Core Concepts</h2>
-          <ul>
-            {CORE_CONCEPTS.map((conceptItem) => (
-              <CoreConcept key={conceptItem.title} {...conceptItem} />
-            ))}
-          </ul>
-        </section>
-
-        <section id="examples">
-          <h2>Examples</h2>
-          <menu>
+    <Section id="examples">
+      <Tabs
+        buttons={
+          <>
             <TabButton
               isSelected={selectedTopic === "components"}
-              onSelect={() => onSelect("components")}
+              onClick={() => onSelect("components")}
             >
               Components
             </TabButton>
             <TabButton
               isSelected={selectedTopic === "jsx"}
-              onSelect={() => onSelect("jsx")}
+              onClick={() => onSelect("jsx")}
             >
               JSX
             </TabButton>
             <TabButton
               isSelected={selectedTopic === "props"}
-              onSelect={() => onSelect("props")}
+              onClick={() => onSelect("props")}
             >
               Props
             </TabButton>
 
             <TabButton
               isSelected={selectedTopic === "state"}
-              onSelect={() => onSelect("state")}
+              onClick={() => onSelect("state")}
             >
               State
             </TabButton>
-          </menu>
-          {tabContent}
-        </section>
-      </main>
-    </>
+          </>
+        }
+      >
+        {tabContent}
+      </Tabs>
+    </Section>
   );
 }
-
-export default App;
