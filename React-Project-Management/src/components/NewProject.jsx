@@ -1,7 +1,7 @@
 import Input from "./Input.jsx";
 export default function NewProject() {
   return (
-    <div className="mt-24 text-center w-2/3">
+    <div className="w-[35rem] mt-16">
       <menu className="flex items-center justify-end gap-4 my-4">
         <li>
           <button className="text-stone-800 hover:text-stone-950">
@@ -15,7 +15,9 @@ export default function NewProject() {
         </li>
       </menu>
       <div>
-        <Input />
+        <Input label="Title" />
+        <Input label="Description" textarea={true} />
+        <Input label="Date" />
       </div>
     </div>
   );

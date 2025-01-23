@@ -1,4 +1,5 @@
 import NewProject from "./components/NewProject";
+import Practice from "./components/Practice";
 import SideBar from "./components/SideBar";
 
 function App() {
