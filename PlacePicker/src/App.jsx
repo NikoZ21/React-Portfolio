@@ -1,15 +1,10 @@
-<<<<<<< Updated upstream
 import { useRef, useState, useEffect } from "react";
 
-=======
-import { useRef, useState } from "react";
->>>>>>> Stashed changes
 import Places from "./components/Places.jsx";
 import { AVAILABLE_PLACES } from "./data.js";
 import Modal from "./components/Modal.jsx";
 import DeleteConfirmation from "./components/DeleteConfirmation.jsx";
 import logoImg from "./assets/logo.png";
-<<<<<<< Updated upstream
 import { sortPlacesByDistance } from "./loc.js";
 
 const key = "selectedPlaces";
@@ -17,8 +12,6 @@ const storeIds = JSON.parse(localStorage.getItem(key)) || [];
 const storedPlaces = storeIds.map((id) =>
   AVAILABLE_PLACES.find((place) => place.id === id)
 );
-=======
->>>>>>> Stashed changes
 
 function App() {
   const modal = useRef();
